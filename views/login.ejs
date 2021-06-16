@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/assets/css/home_head_styles.css">
+    <link rel="stylesheet" href="/assets/css/footer_styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+
+<body>
+    <%- include('../partials/home_header.ejs') %>
+        <div class="sinup-maindiv">
+            <div class="signup-div">
+                <form action="/login" , method="POST">
+                    <h3>LOGIN</h3>
+                    <input type="text" name="username" id="user-name" placeholder="username" autocomplete="off">
+                    <input type="password" name="password" id="pass-word" placeholder="password" minlength="4">
+                    <input id="signup-btn" type="submit">
+                    <div class="err-cls">
+                        <p>
+                            <% if (error !=null || error!=undefined){%>
+                                Error :
+                                <%=error%>
+                                    <%}%>
+
+                        </p>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

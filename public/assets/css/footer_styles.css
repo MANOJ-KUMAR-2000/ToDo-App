@@ -1,0 +1,31 @@
+footer {
+    box-shadow: 0px 0px 12px 2px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    padding: 4px 0px 4px 0px;
+}
+
+footer>.foot {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer>.foot>div>.copyr {
+    color: crimson;
+}
+
+footer a {
+    color: rgb(0, 255, 242);
+    padding: 0px 4px 0px 4px;
+}
+
+footer a:hover {
+    color: white;
+    background-color: black;
+    border-radius: 8px;
+}
+
+footer p {
+    font-size: 12px;
+}
