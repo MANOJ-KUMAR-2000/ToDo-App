@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const dburi = "mongodb+srv://smk00:smkaimldl@cluster0.embt6.mongodb.net/ToDoDB?retryWrites=true&w=majority";
+const dburi = process.env.MONGODB_URI;
 mongoose.connect(dburi, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((res) => {
         app.listen(process.env.PORT||3300);
