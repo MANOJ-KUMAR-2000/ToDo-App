@@ -1,6 +1,13 @@
 //home , login_get, login_post, signup_get, signup_post
 const UserDetails = require("../models/users_details");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+
+const createToken = (id) => {
+    return jwt.sign({ id }, "adkhbaduah!@jG&IGSa&t7USj!3hkHskaSKUH*sq78t6s^Q");
+
+}
 
 const home = (req, res) => {
     res.render("index");
@@ -18,8 +25,10 @@ const login_post = async(req, res) => {
     } else {
 
         if (await bcrypt.compare(entered_user.password, user.password)) {
-
-            res.redirect("/dashboard");
+            const token = createToken(user._id);
+            res.cookie('jwt', token, { httpOnly: true });
+            //res.redirect("/dashboard");
+            res.redirect("/comingsoon");
         } else {
             res.render("login", { error: "Invalid username/password" });
         }

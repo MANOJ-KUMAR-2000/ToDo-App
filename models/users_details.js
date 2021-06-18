@@ -9,5 +9,6 @@ const userschema = new Schema({
 }, { timestamps: true })
 
 
+
 const UserDetails = mongoose.model("UserDetails", userschema);
 module.exports = UserDetails;
