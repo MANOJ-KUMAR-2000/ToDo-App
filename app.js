@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const dburi = process.env.MONGODB_URI;
+const dburi = process.env.DATABASE_URI;
 mongoose.connect(dburi, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((res) => {
         app.listen(process.env.PORT||3300);
