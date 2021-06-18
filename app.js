@@ -12,11 +12,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const dburi = process.env.DATABASE_URI;
+const dburi = "npm -version";
+const port = process.env.PORT || 3300;
 mongoose.connect(dburi, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((res) => {
-        app.listen(process.env.PORT||3300);
-        console.log("Listening on 3300");
+        app.listen(port);
+        console.log(`Listening on ${port}`);
     })
     .catch((err) => console.log(err))
 

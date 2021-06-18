@@ -1,34 +1,33 @@
 {
-  "name": "ToDo-App",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "engines": {
+    "name": "ToDo-App",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
         "node": "14.16.1"
     },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MANOJ-KUMAR-2000/ToDo-App.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MANOJ-KUMAR-2000/ToDo-App/issues"
-  },
-  "homepage": "https://github.com/MANOJ-KUMAR-2000/ToDo-App#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "bootstrap": "^5.0.1",
-    "cookie-parser": "^1.4.5",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mangodb": "^1.0.0",
-    "mongoose": "^5.12.13"
-  }
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MANOJ-KUMAR-2000/ToDo-App.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MANOJ-KUMAR-2000/ToDo-App/issues"
+    },
+    "homepage": "https://github.com/MANOJ-KUMAR-2000/ToDo-App#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "bootstrap": "^5.0.1",
+        "cookie-parser": "^1.4.5",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mangodb": "^1.0.0",
+        "mongoose": "^5.12.13"
+    }
 }
