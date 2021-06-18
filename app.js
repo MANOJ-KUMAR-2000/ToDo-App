@@ -15,7 +15,7 @@ app.use(cookieParser());
 const dburi = "mongodb+srv://smk00:smkaimldl@cluster0.embt6.mongodb.net/ToDoDB?retryWrites=true&w=majority";
 mongoose.connect(dburi, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((res) => {
-        app.listen(3300);
+        app.listen(process.env.PORT||3300);
         console.log("Listening on 3300");
     })
     .catch((err) => console.log(err))
