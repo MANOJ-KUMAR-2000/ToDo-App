@@ -6,16 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do Dashboard</title>
 
-    <link rel="stylesheet" href="/assets/css/home_head_styles.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="/assets/css/dashboard_styles.css">
     <link rel="stylesheet" href="/assets/css/footer_styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+
+
 </head>
 
 <body>
     <%- include('../partials/dashboard_header.ejs') %>
+        <div class="show-modal-btn"><button onclick="onclick_new_activity()" title="create new activity">ADD NEW ACTIVITY</button></div>
 
+        <div class="main-window">
+
+            <div class="user-activites-dash-board">
+                <%
+                for(let i=0;i<userActivity.length;i++){%>
+                    <div class="activity">
+                        <h6>
+                            <%=userActivity[i].todo%>
+                        </h6>
+                        <div class="when">
+                            <p>
+                                <%=userActivity[i].date%>
+                            </p>|
+                            <p>
+                                <%=userActivity[i].time%>
+                            </p>
+                        </div>
+                        <p>
+                            <%=userActivity[i].time2spent%>
+                        </p>
+                        <p>
+                            <%=userActivity[i].description%>
+                        </p>
+                        <div class="activity-btn"><a href=""><i class="fas fa-check-circle"></i></a></div>
+                    </div>
+
+                    <%}
+                %>
+
+            </div>
+
+            <!--MODAL-->
+            <div id="modal-id" class="modal">
+                <div class="modal-head">
+                    <h4>ADD NEW ACTIVITY</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form action="/createActivity" , method="POST">
+                        <div class="form-row">
+                            <p>TO DO</p>
+                            <input type="text" name="todo" id="todo" autocomplete="off" required>
+                        </div>
+                        <div class="form-row">
+                            <p>DATE</p>
+                            <input type="date" name="date" id="date" required>
+                        </div>
+                        <div class="form-row">
+                            <p>TIME</p>
+                            <input type="time" name="time" id="time" required>
+                            <select name="am_or_pm"><option value="AM" selected>AM</option>
+                                <option value="PM">PM</option></select>
+                        </div>
+                        <div class="form-row">
+                            <p>TIME TO COMPLETE</p>
+                            <input type="number" name="time2spent" id="time2spent" placeholder="in minutes" autocomplete="off" required>
+                        </div>
+                        <div class="form-row">
+                            <p>DESCRIPTION</p>
+                            <textarea name="description" id="description" cols="30" autocomplete="off"></textarea>
+                        </div>
+                        <div class="foot-btns">
+                            <input id="add_newActivity-btn" type="submit" value="ADD">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--MODAL-->
+        </div>
         <%- include('../partials/footer.ejs') %>
+
+            <script src="/js/modal.js "></script>
 </body>
 
 </html>

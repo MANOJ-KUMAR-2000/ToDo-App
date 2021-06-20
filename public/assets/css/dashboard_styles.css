@@ -1,3 +1,247 @@
 a {
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
+}
+
+body,
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    width: 100%;
+    background-color: rgb(0, 255, 221);
+    margin: 0px;
+    padding: 4px 0px 4px 0px;
+}
+
+header .head {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+@media screen and (min-width:768px) {
+    header h1 {
+        margin: 12px 8px 12px 36px;
+        font-family: "adamina";
+        font-size: 56px;
+        color: #ff0022;
+    }
+}
+
+@media screen and (max-width:768px) {
+    header h1 {
+        margin: 12px 8px 12px 8px;
+        font-family: "adamina";
+        font-size: 42px;
+        color: #ff0022;
+    }
+}
+
+@media screen and (min-width:768px) {
+    header .head-btn {
+        display: flex;
+        align-items: center;
+    }
+    header .head-btn a {
+        font-size: 28px;
+        margin: 0px 52px 0px 0px;
+        padding: 4px 10px 4px 10px;
+        text-decoration: none;
+        box-shadow: 0px 0px 8px 2px rgb(255, 255, 255);
+        background-color: #ff0022;
+        color: white;
+        border-radius: 25px;
+    }
+}
+
+header .head-btn a:hover {
+    color: black;
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width:728px) {
+    header .head-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    header .head-btn a {
+        font-size: 22px;
+        margin: 8px 16px 4px 0px;
+        padding: 4px 10px 4px 10px;
+        text-decoration: none;
+        box-shadow: 0px 0px 6px 1px rgb(255, 255, 255);
+        background-color: #ff0022;
+        color: white;
+        border-radius: 25px;
+    }
+}
+
+
+/*ACTIVITY STYLE*/
+
+.activity {
+    height: fit-content;
+    width: 212px;
+    display: inline-block;
+    box-shadow: 2px 2px 8px 2px black;
+    border-radius: 16px;
+    padding: 8px 24px 12px 24px;
+    margin: 16px 16px 52px 16px;
+}
+
+.activity h6 {
+    text-align: center;
+    margin: 0px 0px 16px 0px;
+    padding: 0px;
+    font-size: 20px;
+}
+
+.activity>.when {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.activity p {
+    font-size: 18;
+    padding: 0px;
+    margin: 0px 0px 8px 0px;
+    word-wrap: break-word;
+}
+
+.activity i {
+    color: rgb(0, 190, 0);
+    float: right;
+    font-size: 20;
+}
+
+
+/*ACTIVITY STYLE*/
+
+
+/*
+----> main-dashboard
+*/
+
+@media (min-width:768px) {
+    .show-modal-btn {
+        display: none;
+    }
+    .main-window {
+        display: flex;
+    }
+    /*Activity Styles*/
+    .user-activites-dash-board {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px 42px 0px 42px;
+        padding: 32px 0px 32px 0px;
+        justify-content: center;
+    }
+    /*Activity Styles*/
+    .modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20%;
+        height: auto;
+        background-color: rgba(0, 255, 221, 0.349);
+    }
+}
+
+@media (max-width:768px) {
+    .show-modal-btn {
+        display: flex;
+        justify-content: center;
+        position: sticky;
+        top: 0px;
+    }
+    .show-modal-btn>button {
+        width: 100%;
+        padding: 4px 64px 4px 64px;
+        box-shadow: 0px 4px 8px 2px black;
+        color: whitesmoke;
+        background-color: #ff0022;
+        border: none;
+        border-bottom-left-radius: 32px;
+        border-bottom-right-radius: 32px;
+    }
+    .main-window {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .user-activites-dash-board {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px;
+        padding: 32px 0px 32px 0px;
+        justify-content: center;
+    }
+    .modal {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        background-color: rgb(0, 255, 221);
+    }
+}
+
+.modal-head h4 {
+    font-size: 20px;
+    margin: 64px 0px 24px 0px;
+    border-bottom: 3px solid #ff0022;
+}
+
+.form-row {
+    margin-bottom: 24px;
+    font-size: 24px;
+}
+
+.foot-btns {
+    display: flex;
+    justify-content: center;
+}
+
+#add_newActivity-btn {
+    padding: 4px 18px 4px 18px;
+    border: none;
+    color: white;
+    background-color: #ff0022;
+}
+
+#add_newActivity-btn:hover {
+    background-color: white;
+    color: #ff0022;
+    box-shadow: 0px 0px 20px 2px #ff0022;
+}
+
+textarea {
+    resize: vertical;
+}
+
+form input,
+textarea {
+    border: none;
+    color: #ff0022;
+    outline: none;
+    border-bottom: 2px solid #ff0022;
+    background-color: transparent;
+}
+
+
+/*
+----> main-dashboard
+*/
+
+input[type=time]::-webkit-datetime-edit-ampm-field {
+    display: none;
 }

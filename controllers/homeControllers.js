@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 
 const createToken = (id) => {
     return jwt.sign({ id }, "adkhbaduah!@jG&IGSa&t7USj!3hkHskaSKUH*sq78t6s^Q");
-
 }
 
 const home = (req, res) => {
@@ -27,8 +26,7 @@ const login_post = async(req, res) => {
         if (await bcrypt.compare(entered_user.password, user.password)) {
             const token = createToken(user._id);
             res.cookie('jwt', token, { httpOnly: true });
-            //res.redirect("/dashboard");
-            res.redirect("/comingsoon");
+            res.redirect("/dashboard");
         } else {
             res.render("login", { error: "Invalid username/password" });
         }

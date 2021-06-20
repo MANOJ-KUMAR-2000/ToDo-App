@@ -4,10 +4,9 @@ const router = express.Router();
 
 
 router.get("/logout", dashboardController.logout)
-    /*
-    router.get("/dashboard", dashboardController.main)
-    router.post("/createActivity", dashboardController.createActivity)
-    */
 
-router.get("/comingsoon", dashboardController.comingsoon);
+router.get("/dashboard", dashboardController.main)
+router.post("/createActivity", dashboardController.createActivity)
+
+
 module.exports = router;
