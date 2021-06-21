@@ -13,4 +13,7 @@ router.get("/signup", homeController.signup_get)
 
 router.post("/signup", homeController.signup_post)
 
+router.get("/feedback", homeController.feedback_get)
+router.post("/feedback", homeController.feedback_post)
+
 module.exports = router;

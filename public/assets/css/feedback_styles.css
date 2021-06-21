@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(45deg, rgb(253, 50, 50), dodgerblue);
+    font-family: "Sansita Swashed", cursive;
+}
+
+.feedback-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    width: fit-content;
+    margin-top: 50px;
+    padding: 0px 50px 16px 50px;
+    background: rgba(0, 0, 0, 0.329);
+    border-radius: 10px;
+}
+
+.center h1 {
+    font-size: 2em;
+    border-left: 5px solid #ff0022ce;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+@media (max-width:768px) {
+    .center .inputbox {
+        position: relative;
+        width: 236px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width:768px) {
+    .center .inputbox {
+        position: relative;
+        width: 412px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+.center .inputbox input,
+textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #ffffffce;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0);
+}
+
+.center .inputbox:last-child {
+    margin-bottom: 0;
+}
+
+.center .inputbox span {
+    color: #000;
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    font-size: 1em;
+    transition: 0.6s;
+    font-family: sans-serif;
+}
+
+.center .inputbox input:focus~span,
+.center .inputbox input:valid~span {
+    transform: translateX(-13px) translateY(-35px);
+    font-size: 1em;
+}
+
+.center .inputbox textarea:focus~span,
+.center .inputbox textarea:valid~span {
+    transform: translateX(-13px) translateY(-35px);
+    font-size: 1em;
+}
+
+.center .inputbox textarea {
+    resize: none;
+}
+
+#sub-btn {
+    margin-top: 16px;
+    cursor: pointer;
+    width: 100%;
+    background: rgb(20, 83, 255);
+    color: rgb(255, 255, 255);
+    border: #fff;
+}
+
+#sub-btn:hover {
+    color: black;
+    background: linear-gradient(45deg, rgb(253, 50, 50), dodgerblue);
+}

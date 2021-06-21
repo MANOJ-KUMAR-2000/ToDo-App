@@ -85,6 +85,7 @@ header .head-btn a:hover {
 /*ACTIVITY STYLE*/
 
 .activity {
+    background-color: rgb(225, 255, 251);
     height: fit-content;
     width: 212px;
     display: inline-block;
@@ -95,23 +96,27 @@ header .head-btn a:hover {
 }
 
 .activity h6 {
+    color: #ff0022;
+    /*text-decoration: underline;*/
     text-align: center;
     margin: 0px 0px 16px 0px;
     padding: 0px;
-    font-size: 20px;
+    font-size: 28px;
 }
 
 .activity>.when {
     display: flex;
     justify-content: space-around;
-    padding: 0px;
-    margin-bottom: 0px;
+    padding: 4px 6px 4px 6px;
+    margin: 0px;
+    border-radius: 16px;
+    background-color: rgb(255, 203, 203);
 }
 
 .activity p {
     font-size: 18;
     padding: 0px;
-    margin: 0px 0px 8px 0px;
+    margin: 0px;
     word-wrap: break-word;
 }
 
@@ -119,6 +124,20 @@ header .head-btn a:hover {
     color: rgb(0, 190, 0);
     float: right;
     font-size: 20;
+    margin-top: 12px;
+}
+
+p.time-to-spent {
+    background-color: transparent;
+    text-align: center;
+    margin-top: 4px;
+    padding: 4px 0px 4px 0px;
+    animation: time-spent-color 1s infinite;
+    color: black;
+}
+
+p.desc {
+    margin-top: 12px;
 }
 
 
@@ -152,7 +171,7 @@ header .head-btn a:hover {
         align-items: center;
         width: 20%;
         height: auto;
-        background-color: rgba(0, 255, 221, 0.349);
+        background-color: rgba(0, 255, 221, 0.233);
     }
 }
 
@@ -242,6 +261,27 @@ textarea {
 ----> main-dashboard
 */
 
+.delayed {
+    background-color: rgba(255, 80, 80);
+}
+
+.delayed h6 {
+    color: rgb(0, 0, 0);
+}
+
+.delayed .when {
+    background-color: rgb(218, 255, 253);
+}
+
+.delayed>p.time-to-spent {
+    background-color: transparent;
+    text-decoration: line-through;
+    animation: none;
+}
+
+
+/*
 input[type=time]::-webkit-datetime-edit-ampm-field {
     display: none;
 }
+*/

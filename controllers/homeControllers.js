@@ -2,7 +2,7 @@
 const UserDetails = require("../models/users_details");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const feedbackDetails = require("../models/feedback_details")
 
 const createToken = (id) => {
     return jwt.sign({ id }, "adkhbaduah!@jG&IGSa&t7USj!3hkHskaSKUH*sq78t6s^Q");
@@ -53,4 +53,22 @@ const signup_post = async(req, res) => {
         })
 }
 
-module.exports = { home, login_get, login_post, signup_get, signup_post }
+const feedback_get = (req, res) => {
+    res.render("feedback");
+}
+
+const feedback_post = (req, res) => {
+    var newfeedback = new feedbackDetails(req.body);
+    newfeedback.save()
+        .then((result) => {
+            res.redirect("/");
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
+
+
+
+module.exports = { home, login_get, login_post, signup_get, signup_post, feedback_get, feedback_post }

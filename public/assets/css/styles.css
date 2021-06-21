@@ -27,13 +27,30 @@ a:hover {
     [START] Styles for home page
 */
 
+.main-content a {
+    background-image: linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hue 700ms infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(-360deg);
+    }
+}
+
 @media (min-width:768px) {
     .main-content a,
     .main-content p {
+        font-weight: bold;
         color: #ff0022;
         font-size: 48px;
         text-align: center;
-        background-color: rgb(0, 255, 221);
+        background-color: rgb(47, 241, 255);
         border-radius: 64px;
     }
     .main-content {
@@ -122,7 +139,7 @@ a:hover {
 
 #signup-btn {
     width: 40%;
-    margin: 0px 30% 0px 30%;
+    margin: 10px 30% 0px 30%;
     padding: 4px;
     font-size: 18px;
     background-color: #ff0022;
@@ -139,3 +156,22 @@ a:hover {
 /*
     [END] Styles for signup page
 */
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.links a {
+    text-align: right;
+    font-size: 16px;
+    color: black;
+    text-decoration: underline;
+}
+
+.links a:hover {
+    font-size: 16px;
+    color: #ff0022;
+    background-color: transparent;
+}

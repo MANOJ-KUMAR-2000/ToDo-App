@@ -10,8 +10,62 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="/assets/css/dashboard_styles.css">
     <link rel="stylesheet" href="/assets/css/footer_styles.css">
+    <script>
+        function check(number) {
+            if (number < 10) {
+                return number = "0" + number;
+            } else {
+                return number;
+            }
+        }
+
+        function torail_time(time) {
+            var T = time.split(" ")[0];
+            var hour = T.split(":")[0];
+            var min = T.split(":")[1];
+            var amRpm = time.split(" ")[1];
+
+            if (amRpm == "PM" && hour < 12) {
+                hour = check(parseInt(hour) + 12);
+            }
+            return hour + ":" + min;
 
 
+        }
+
+        window.onload = setTimeout(function isdelayed() {
+            var elements = document.getElementsByClassName("activity");
+            var curr = new Date();
+
+            var day = check(curr.getDate());
+            var month = check(curr.getMonth() + 1);
+            var year = curr.getFullYear();
+            var curr_date = year + "-" + month + "-" + day;
+
+            var hour = check(curr.getHours());
+            var minutes = check(curr.getMinutes());
+            var curr_time = hour + ":" + minutes;
+
+            for (let i = 0; i < elements.length; i++) {
+                var date = elements[i].getElementsByClassName("para-date")[0].innerText;
+                var time = elements[i].getElementsByClassName("para-time")[0].innerText;
+                var rail_time = torail_time(time);
+
+                if (curr_date >= date) {
+                    if (curr_date == date) {
+                        if (curr_time > rail_time) {
+                            elements[i].classList.add("delayed");
+                        }
+                        continue;
+                    }
+                    elements[i].classList.add("delayed");
+                }
+
+
+            }
+
+        }, 500);
+    </script>
 
 </head>
 
@@ -24,25 +78,26 @@
             <div class="user-activites-dash-board">
                 <%
                 for(let i=0;i<userActivity.length;i++){%>
-                    <div class="activity">
+                    <div id="activity-id" class="activity">
                         <h6>
                             <%=userActivity[i].todo%>
                         </h6>
                         <div class="when">
-                            <p>
+                            <p class="para-date">
                                 <%=userActivity[i].date%>
                             </p>|
-                            <p>
+                            <p class="para-time">
                                 <%=userActivity[i].time%>
                             </p>
                         </div>
-                        <p>
-                            <%=userActivity[i].time2spent%>
+                        <p class="time-to-spent">
+                            |
+                            <%=userActivity[i].time2spent%> Minutes to complete |
                         </p>
-                        <p>
+                        <p class="desc">
                             <%=userActivity[i].description%>
                         </p>
-                        <div class="activity-btn"><a href=""><i class="fas fa-check-circle"></i></a></div>
+                        <div><a class="activity-<%=i%>" onclick="delete_clicked('activity-<%=i%>')" data-doc="<%= userActivity[i]._id %>"><i class="fas fa-check-circle"></i></a></div>
                     </div>
 
                     <%}
@@ -57,7 +112,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="/createActivity" , method="POST">
+                    <form action="/dashboard/createActivity" , method="POST">
                         <div class="form-row">
                             <p>TO DO</p>
                             <input type="text" name="todo" id="todo" autocomplete="off" required>
@@ -69,8 +124,6 @@
                         <div class="form-row">
                             <p>TIME</p>
                             <input type="time" name="time" id="time" required>
-                            <select name="am_or_pm"><option value="AM" selected>AM</option>
-                                <option value="PM">PM</option></select>
                         </div>
                         <div class="form-row">
                             <p>TIME TO COMPLETE</p>
@@ -86,11 +139,45 @@
                     </form>
                 </div>
             </div>
+
             <!--MODAL-->
         </div>
         <%- include('../partials/footer.ejs') %>
 
             <script src="/js/modal.js "></script>
+            <script>
+                function delete_clicked(cls) {
+                    const completed = document.querySelector("a." + cls)
+                    const endpoint = `/dashboard/delete/${completed.dataset.doc}`;
+                    fetch(endpoint, {
+                            method: 'DELETE'
+                        })
+                        .then((response) => {
+                            response.json()
+                                .then(data => {
+                                    window.location.href = data.redirect;
+                                })
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
+
+                }
+
+                function isdelayed() {
+                    var element = document.getElementsByClassName(".activity");
+                    var date = document.getElementsByClassName("div.activity>div.when>p.para-date");
+                    console.log(date);
+                    var time = document.getElementsByClassName(".activity>.when>para-time");
+                    console.log(time);
+                    var curr_data = new Date().getDate();
+
+                    console.log(curr_data > date);
+
+                    element.classList.add("mystyle");
+                }
+            </script>
+
 </body>
 
 </html>

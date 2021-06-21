@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feedback</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="/assets/css/home_head_styles.css">
+    <link rel="stylesheet" href="/assets/css/footer_styles.css">
+    <link rel="stylesheet" href="/assets/css/feedback_styles.css">
+</head>
+
+<body>
+    <%- include('../partials/home_header.ejs') %>
+        <div class="feedback-form">
+            <div class="center">
+                <h1>Feedback</h1>
+                <form action="/feedback" , method="post">
+                    <div class="inputbox">
+                        <input type="text" name="name" required="required">
+                        <span>Name</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" name="email" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputbox">
+                        <textarea type="text" name="feed" cols="30" rows="3" required="required"></textarea>
+                        <span>Feedback</span>
+                    </div>
+                    <div class="inputbox">
+                        <input id="sub-btn" type="submit" value="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>
