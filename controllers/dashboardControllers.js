@@ -28,7 +28,11 @@ const main = async(req, res) => {
                     .then((results) => {
                         const sortByDate = arr => {
                             const sorter = (a, b) => {
-                                return new Date(a.date) - new Date(b.date);
+                                if (a.date != b.date) {
+                                    return new Date(a.date) - new Date(b.date);
+                                } else {
+                                    return new Date('1970/01/01 ' + a.time) - new Date('1970/01/01 ' + b.time);
+                                }
                             }
                             arr.sort(sorter);
                         };
