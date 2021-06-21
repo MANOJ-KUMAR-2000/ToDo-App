@@ -72,7 +72,7 @@ const createActivity = (req, res) => {
     var hr = parseInt(newActivity_details.time.split(":")[0]);
     var mins = newActivity_details.time.split(":")[1];
     var time_stamp = "AM";
-    if (hr > 12) {
+    if (hr >= 12) {
         hr -= 12;
         if (hr < 10) {
             hr = "0" + hr;
