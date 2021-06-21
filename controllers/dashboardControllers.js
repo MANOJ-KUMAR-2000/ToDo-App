@@ -36,7 +36,8 @@ const main = async(req, res) => {
                             }
                             arr.sort(sorter);
                         };
-                        sortByDate(results)
+                        results = results.filter(result => result != null);
+                        sortByDate(results);
                         res.render("dashboard", { userName: user.username, userActivity: results });
                     })
                     .catch((err) => {
